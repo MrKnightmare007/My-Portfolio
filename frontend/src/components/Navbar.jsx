@@ -81,7 +81,7 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* Desktop Navigation (Hidden on Mobile) */}
-      <nav className="hidden md:flex fixed top-0 left-0 right-0 backdrop-blur-md bg-black/30 text-white shadow-lg w-full z-50 px-8 py-4">
+      <nav className="hidden md:flex fixed top-0 left-0 right-0 backdrop-blur-md bg-black/30 text-white shadow-lg w-full z-50 px-8 py-4 mb-0">
         <div className="max-w-7xl mx-auto flex justify-between items-center w-full">
           <TrueFocus
             sentence="My Portfolio"

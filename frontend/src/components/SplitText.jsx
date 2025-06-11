@@ -106,6 +106,10 @@ const SplitText = ({
       style={{
         textAlign,
         wordWrap: "break-word",
+        color: "white",       // Set text color to white
+        fontSize: "3rem",     // Increase font size (adjust as needed)
+        fontWeight: 700,      // Optional: Add bold weight
+        lineHeight: 1.4,
       }}
     >
       {text}

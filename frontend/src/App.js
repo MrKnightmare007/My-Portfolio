@@ -1,54 +1,36 @@
-import logo from './logo.svg';
+import { useEffect, useRef } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
-import GradientText from './components/Gradient';
-import SplitText from './components/SplitText';
-import BlurText from './components/BlurText';
-import ProfileCard from './components/ProfileCard';
 import BackgroundParticles from './components/BackgroundParticles';
+import Hero from './components/Hero';
+import Lanyard from './components/Lanyard';
 
 function App() {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const lanyardHeight = 999 * window.innerHeight / 100; // 125vh
+      if (containerRef.current) {
+        containerRef.current.style.minHeight = `${lanyardHeight}px`;
+      }
+    };
+
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
+
   return (
-    <div className="gradient-fluid min-h-screen">
+    <div ref={containerRef} className="gradient-fluid relative">
       <Navbar />
-      <main className="container mx-auto p-36">
       <BackgroundParticles />
-        <GradientText colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-          animationSpeed={3}
-          showBorder={false}
-          className="custom-class">Not another shitcoin, We are the ONE</GradientText>
-        <SplitText
-          text="Hello, GSAP!"
-          className="text-2xl font-semibold text-center"
-          delay={100}
-          duration={0.6}
-          ease="power3.out"
-          splitType="chars"
-          from={{ opacity: 0, y: 40 }}
-          to={{ opacity: 1, y: 0 }}
-          threshold={0.1}
-          rootMargin="-100px"
-          textAlign="center"
-        />
-        <BlurText
-          text="Isn't this so cool?!"
-          delay={150}
-          animateBy="words"
-          direction="top"
-          className="text-2xl mb-8"
-        />
-        {/* <ProfileCard
-          name="Javi A. Torres"
-          title="Software Engineer"
-          handle="javicodes"
-          status="Online"
-          contactText="Contact Me"
-          avatarUrl="/path/to/avatar.jpg"
-          showUserInfo={true}
-          enableTilt={true}
-          onContactClick={() => console.log('Contact clicked')}
-        /> */}
+      <main className="container p-32">
+        <Hero />
       </main>
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+      </div>
     </div>
   );
 }

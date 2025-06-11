@@ -35,6 +35,7 @@ button, .jelly-button {
   cursor: pointer;
   color: greenyellow;
   box-shadow: 0 0 10px #363636, inset 0 0 10px #363636;
+  z-index: -1;
 }
 
 button:hover, .jelly-button:hover {
@@ -91,7 +92,7 @@ main {
   transition: all 0.3s ease;
   opacity: 0;
   pointer-events: none !important; /* Ensure clicks pass through */
-  z-index: 1; /* Ensure hover divs are below the link */
+  z-index: -1; /* Ensure hover divs are below the link */
 }
 
 .container-button:hover .hover {
@@ -119,5 +120,62 @@ main {
   }
   .Lanyard {
     margin-top: 2rem; /* Add some spacing on mobile */
+  }
+}
+
+/* Introduction Styles */
+.intro-container {
+  margin-top: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.intro-text {
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  animation: reveal 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .Lanyard {
+    margin-top: 2rem; /* Add some spacing on mobile */
+  }
+  .intro-container {
+    padding: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .intro-text {
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }

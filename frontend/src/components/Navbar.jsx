@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Dock from './Dock';
 import { VscMenu } from 'react-icons/vsc'; // Hamburger icon
 import {
@@ -15,39 +15,49 @@ import TrueFocus from './TrueFocus';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const scrollToSection = (sectionId) => { 
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const items = [
     {
       icon: <VscHome className="text-white" size={18} />,
       label: 'Home',
-      onClick: () => alert('Home!')
+      onClick: () => scrollToSection('home'),
     },
     {
       icon: <GoProjectSymlink className="text-white" size={18} />,
       label: 'Projects',
-      onClick: () => alert('Projects!')
+      onClick: () => scrollToSection('projects'),
     },
     {
       icon: <GiSkills className="text-white" size={18} />,
       label: 'Skills',
-      onClick: () => alert('Skills!')
+      onClick: () => scrollToSection('skills'),
     },
     {
       icon: <MdPermPhoneMsg className="text-white" size={18} />,
-      label: 'Contact',
-      onClick: () => alert('Contact!')
+      label: 'Certifications',
+      onClick: () => scrollToSection('certifications'),
     },
     {
       icon: <VscDebugDisconnect className="text-white" size={18} />,
       label: 'Connect',
-      onClick: () => alert('Connect!')
+      onClick: () => scrollToSection('connect'),
     },
   ];
+
   const Navitems = [
-    { label: "Home", href: "#" },
-    { label: "Projects", href: "#" },
-    { label: "Skills", href: "#" },
-    { label: "Contact", href: "#" },
+    { label: "Home", href: "#home", onClick: () => scrollToSection('home') },
+    { label: "Projects", href: "#projects", onClick: () => scrollToSection('projects') },
+    { label: "Skills", href: "#skills", onClick: () => scrollToSection('skills') },
+    { label: "Certifications", href: "#certifications", onClick: () => scrollToSection('certifications') },
   ];
+
   return (
     <>
       {/* Mobile Toggle Button */}
@@ -102,19 +112,14 @@ const Navbar = () => {
               timeVariance={300}
               colors={[1, 2, 3, 1, 2, 3, 1, 4]}
             />
-            <a href="#connect" className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md hover:from-purple-700 hover:to-indigo-700 transition">
+            <a
+              href="#connect"
+              onClick={() => scrollToSection('connect')}
+              className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md hover:from-purple-700 hover:to-indigo-700 transition"
+            >
               Connect
             </a>
           </div>
-          {/* <div className="flex items-center space-x-6">
-            <a href="#home" className="hover:text-indigo-400 transition">Home</a>
-            <a href="#projects" className="hover:text-indigo-400 transition">Projects</a>
-            <a href="#skills" className="hover:text-indigo-400 transition">Skills</a>
-            <a href="#contact" className="hover:text-indigo-400 transition">Contact</a>
-            <a href="#connect" className="bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md hover:from-purple-700 hover:to-indigo-700 transition">
-              Connect
-            </a>
-          </div> */}
         </div>
       </nav>
     </>

@@ -45,6 +45,11 @@ const Navbar = () => {
       onClick: () => scrollToSection('certifications'),
     },
     {
+      icon: <GiSkills className="text-white" size={18} />,
+      label: 'Awards',
+      onClick: () => scrollToSection('awards'),
+    },
+    {
       icon: <VscDebugDisconnect className="text-white" size={18} />,
       label: 'Connect',
       onClick: () => scrollToSection('connect'),
@@ -56,6 +61,7 @@ const Navbar = () => {
     { label: "Projects", href: "#projects", onClick: () => scrollToSection('projects') },
     { label: "Skills", href: "#skills", onClick: () => scrollToSection('skills') },
     { label: "Certifications", href: "#certifications", onClick: () => scrollToSection('certifications') },
+    { label: "Awards", href: "#awards", onClick: () => scrollToSection('awards') },
   ];
 
   return (

@@ -9,12 +9,13 @@ import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/not-found';
 import { BackgroundGradientAnimation } from './components/background-gradient-animation';
 import GlassIcons from './components/GlassIcons';
-import { FaReact, FaNode, FaAws, FaPython, FaDocker, FaHtml5  } from "react-icons/fa";
-import { SiMongodb, SiExpress, SiTypescript,SiPostgresql } from "react-icons/si";
+import { FaReact, FaNode, FaAws, FaPython, FaDocker, FaHtml5 } from "react-icons/fa";
+import { SiMongodb, SiExpress, SiTypescript, SiPostgresql } from "react-icons/si";
 import { FaCss3Alt } from "react-icons/fa6";
 import { RiNextjsLine } from "react-icons/ri";
 import { FocusCards } from './components/focus-cards';
 import { motion } from "framer-motion";
+import { Carousel } from './components/carousel';
 
 // Dynamically import the World component using React.lazy
 const World = lazy(() => import("./components/globe").then((m) => ({ default: m.World })));
@@ -43,6 +44,28 @@ function App() {
     autoRotateSpeed: 0.5,
   };
   const colors = ["#06b6d4", "#3b82f6", "#6366f1"];
+  const slideData = [
+    {
+      title: "Mystic Mountains",
+      button: "Explore Component",
+      src: "https://i.imgur.com/2HlEli5.jpeg",
+    },
+    {
+      title: "Urban Dreams",
+      button: "Explore Component",
+      src: "https://i.imgur.com/XbixHHY.jpeg",
+    },
+    {
+      title: "Neon Nights",
+      button: "Explore Component",
+      src: "https://i.imgur.com/77FNrYb.jpeg",
+    },
+    {
+      title: "Desert Whispers",
+      button: "Explore Component",
+      src: "https://i.imgur.com/Dv34nCK.jpeg",
+    },
+  ];
   const sampleArcs = [
     {
       order: 1,
@@ -405,7 +428,7 @@ function App() {
       color: colors[Math.floor(Math.random() * (colors.length - 1))],
     },
   ];
- 
+
   // update with your own icons and colors
   const Skillitems = [
     { icon: <FaReact />, color: 'blue', label: 'ReactJS' },
@@ -459,8 +482,8 @@ function App() {
       src: "https://i.imgur.com/UgrD79a.png",
     },
     {
-      title: "Project IDX User",
-      src: "https://i.imgur.com/gb9hoeC.png",
+      title: "Diversion 2k24 Participation Certificate",
+      src: "https://i.imgur.com/iEfqCGv.png",
     },
     {
       title: "Introduction to Generative AI",
@@ -524,37 +547,42 @@ function App() {
                   <FocusCards cards={cards} />
                 </div>
               </section>
+              <section id="awards">
+                <div style={{ height: '1000px', position: 'relative', marginTop: '500px' }}>
+                  <Carousel slides={slideData} />
+                </div>
+              </section>
               <section id="connect">
-              <div className="flex flex-row items-center justify-center mt-[828px] py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
-                <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: 20,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    transition={{
-                      duration: 1,
-                    }}
-                    className="div"
-                  >
-                    <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-                      We sell soap worldwide
-                    </h2>
-                    <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-                      This globe is interactive and customizable. Have fun with it, and
-                      don&apos;t forget to share it. :)
-                    </p>
-                  </motion.div>
-                  <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-                  <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-                    <World data={sampleArcs} globeConfig={globeConfig} />
+                <div className="flex flex-row items-center justify-center mt-[828px] py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
+                  <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        y: 20,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      transition={{
+                        duration: 1,
+                      }}
+                      className="div"
+                    >
+                      <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+                        We sell soap worldwide
+                      </h2>
+                      <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+                        This globe is interactive and customizable. Have fun with it, and
+                        don&apos;t forget to share it. :)
+                      </p>
+                    </motion.div>
+                    <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
+                    <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
+                      <World data={sampleArcs} globeConfig={globeConfig} />
+                    </div>
                   </div>
                 </div>
-              </div>
               </section>
             </div>
           </>

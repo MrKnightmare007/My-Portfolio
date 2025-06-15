@@ -186,3 +186,18 @@ section,#home {
     line-height: 1.6;
   }
 }
+
+/* Specific styles for carousel control buttons to override generic button styles */
+.carousel-control-button {
+  padding: 0 !important; /* Override padding from generic button */
+  font-size: 0 !important; /* Remove any font-size influence */
+  background: #000 !important; /* bg-gray-300 */
+  color: #000 !important; /* Ensure icon color is black */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Add shadow for visibility */
+  z-index: 50 !important; /* Ensure it's above other elements */
+}
+
+.dark .carousel-control-button {
+  background: #4b5563 !important; /* bg-gray-700 in dark mode */
+  color: #fff !important; /* Ensure icon color is white */
+}

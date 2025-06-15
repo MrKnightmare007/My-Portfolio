@@ -39,26 +39,26 @@ export function FocusCards({
 
   return (
     <div className="flex flex-col items-center">
-         <h2 className="text-4xl md:text-7xl font-bold mb-8 mt-8">
-          <GradientText
+      <h2 className="text-4xl md:text-7xl font-bold mb-8 mt-8">
+        <GradientText
           colors={["#DAA520", "#FFD700", "#FFA500", "#D63718"]}
           animationSpeed={3}
           showBorder={false}
         >
           Certifications
         </GradientText>
-          </h2>
-          <div
-      className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-8xl mx-auto md:px-8 w-full">
-      {cards.map((card, index) => (
-        <Card
-          key={card.title}
-          card={card}
-          index={index}
-          hovered={hovered}
-          setHovered={setHovered} />
-      ))}
-    </div>
+      </h2>
+      <div
+        className="grid grid-cols-1 md:grid-cols-4 gap-10 max-w-8xl mx-auto md:px-8 w-full">
+        {cards.map((card, index) => (
+          <Card
+            key={card.title}
+            card={card}
+            index={index}
+            hovered={hovered}
+            setHovered={setHovered} />
+        ))}
+      </div>
     </div>
   );
 }

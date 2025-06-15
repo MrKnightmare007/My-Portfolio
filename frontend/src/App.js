@@ -9,9 +9,9 @@ import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/not-found';
 import { BackgroundGradientAnimation } from './components/background-gradient-animation';
 import GlassIcons from './components/GlassIcons';
-import { FiFileText, FiBook, FiHeart, FiCloud, FiEdit, FiBarChart2 } from 'react-icons/fi';
-import { FaReact, FaNode, FaAws  } from "react-icons/fa";
-import { SiMongodb, SiExpress } from "react-icons/si";
+import { FaReact, FaNode, FaAws, FaPython, FaDocker, FaHtml5  } from "react-icons/fa";
+import { SiMongodb, SiExpress, SiTypescript,SiPostgresql } from "react-icons/si";
+import { FaCss3Alt } from "react-icons/fa6";
 import { RiNextjsLine } from "react-icons/ri";
 import { FocusCards } from './components/focus-cards';
 import { motion } from "framer-motion";
@@ -410,10 +410,16 @@ function App() {
   const Skillitems = [
     { icon: <FaReact />, color: 'blue', label: 'ReactJS' },
     { icon: <SiMongodb />, color: 'purple', label: 'MongoDB' },
-    { icon: <FaNode/>, color: 'red', label: 'NodeJS' },
+    { icon: <FaNode />, color: 'red', label: 'NodeJS' },
     { icon: <SiExpress />, color: 'indigo', label: 'ExpressJS' },
     { icon: <RiNextjsLine />, color: 'orange', label: 'NextJS' },
-    { icon: <FaAws  />, color: 'green', label: 'AWS' },
+    { icon: <FaAws />, color: 'green', label: 'AWS' },
+    { icon: <FaPython />, color: 'teal', label: 'Python' },
+    { icon: <FaDocker />, color: 'pink', label: 'Docker' },
+    { icon: <FaHtml5 />, color: 'yellow', label: 'HTML' },
+    { icon: <FaCss3Alt />, color: 'lime', label: 'CSS' },
+    { icon: <SiTypescript />, color: 'cyan', label: 'TypeScript' },
+    { icon: <SiPostgresql />, color: 'magenta', label: 'PostgreSQL' },
   ];
   const cards = [
     {

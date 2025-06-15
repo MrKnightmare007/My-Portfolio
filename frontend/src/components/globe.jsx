@@ -5,6 +5,7 @@ import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "../assets/globe.json";
+import BackgroundParticles from "./BackgroundParticles";
 
 extend({ ThreeGlobe: ThreeGlobe });
 

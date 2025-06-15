@@ -1,4 +1,4 @@
-import { useEffect, useRef, lazy, Suspense } from 'react';
+import { useEffect, useRef, lazy, Suspense, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import BackgroundParticles from './components/BackgroundParticles';
@@ -16,6 +16,8 @@ import { RiNextjsLine } from "react-icons/ri";
 import { FocusCards } from './components/focus-cards';
 import { motion } from "framer-motion";
 import { Carousel } from './components/carousel';
+import SocialMedia from './components/Social-media';
+import Form from './components/form';
 
 // Dynamically import the World component using React.lazy
 const World = lazy(() => import("./components/globe").then((m) => ({ default: m.World })));
@@ -429,7 +431,6 @@ function App() {
     },
   ];
 
-  // update with your own icons and colors
   const Skillitems = [
     { icon: <FaReact />, color: 'blue', label: 'ReactJS' },
     { icon: <SiMongodb />, color: 'purple', label: 'MongoDB' },
@@ -495,8 +496,11 @@ function App() {
     },
   ];
   const containerRef = useRef(null);
-  const items = [
-  ];
+  const items = [];
+
+  // State to toggle between SocialMedia and Form components
+  const [activeComponent, setActiveComponent] = useState('social'); // Default to 'social'
+
   useEffect(() => {
     const updateHeight = () => {
       const lanyardHeight = 500 * window.innerHeight / 100; // 125vh
@@ -548,38 +552,59 @@ function App() {
                 </div>
               </section>
               <section id="awards">
-                <div style={{ height: '1000px', position: 'relative', marginTop: '500px' }}>
+                <div style={{ position: 'relative', marginTop: '370px' }}>
                   <Carousel slides={slideData} />
                 </div>
               </section>
               <section id="connect">
-                <div className="flex flex-row items-center justify-center mt-[828px] py-20 h-screen md:h-auto dark:bg-black bg-white relative w-full">
-                  <div className="max-w-7xl mx-auto w-full relative overflow-hidden h-full md:h-[40rem] px-4">
+                <div className="relative w-full mt-[100px] min-h-screen py-20 dark:bg-black bg-white">
+                  <div className="max-w-7xl mx-auto px-4">
                     <motion.div
-                      initial={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 1,
-                      }}
-                      className="div"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1 }}
+                      className="text-center mb-12"
                     >
-                      <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
-                        We sell soap worldwide
+                      <h2 className="text-xl md:text-4xl font-bold text-black dark:text-white">
+                        Connect With Me
                       </h2>
-                      <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-                        This globe is interactive and customizable. Have fun with it, and
-                        don&apos;t forget to share it. :)
+                      <p className="text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+                        Connect with me from anywhere in the globe either via my social media handles or send me a quick email. :)
                       </p>
                     </motion.div>
-                    <div className="absolute w-full bottom-0 inset-x-0 h-40 bg-gradient-to-b pointer-events-none select-none from-transparent dark:to-black to-white z-40" />
-                    <div className="absolute w-full -bottom-20 h-72 md:h-full z-10">
-                      <World data={sampleArcs} globeConfig={globeConfig} />
+                    <div className="flex flex-col md:flex-row items-start justify-between gap-8">
+                      {/* Left Side: Globe */}
+                      <div className="w-full md:w-1/2 h-[30rem] relative z-0 self-start border-2 border-black">
+                        <World data={sampleArcs} globeConfig={globeConfig} />
+                      </div>
+                      {/* Right Side: Buttons and Conditional Component */}
+                      <div className="w-full md:w-1/2 flex flex-col items-center gap-6 z-10 p-4 border-2 border-black">
+                        <div className="flex gap-4 bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-lg">
+                          <button
+                            onClick={() => setActiveComponent('social')}
+                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${
+                              activeComponent === 'social'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
+                            }`}
+                          >
+                            Social Media
+                          </button>
+                          <button
+                            onClick={() => setActiveComponent('form')}
+                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${
+                              activeComponent === 'form'
+                                ? 'bg-blue-600 text-white'
+                                : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
+                            }`}
+                          >
+                            Email Me
+                          </button>
+                        </div>
+                        <div className="w-full max-w-md min-h-[20rem] border-2 border-black">
+                          {activeComponent === 'social' ? <SocialMedia /> : <Form />}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

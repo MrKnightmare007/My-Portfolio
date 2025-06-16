@@ -201,3 +201,35 @@ section,#home {
   background: #4b5563 !important; /* bg-gray-700 in dark mode */
   color: #fff !important; /* Ensure icon color is white */
 }
+
+/* Glass effect for SocialMedia and Form containers */
+.glass-container {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white for light mode */
+  backdrop-filter: blur(10px); /* Frosted glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  perspective: 1000px; /* Enable 3D perspective */
+}
+
+.dark .glass-container {
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black for dark mode */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border in dark mode */
+}
+
+/* 3D tilt effect on hover */
+.glass-container:hover {
+  transform: rotateX(5deg) rotateY(5deg); /* Slight 3D tilt */
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Ensure the container doesn't tilt when interacting with children */
+.glass-container > * {
+  pointer-events: auto;
+}
+
+/* Social icon hover effect (already in SocialMedia.jsx, but ensuring consistency) */
+.social-icon {
+  display: inline-block;
+}

@@ -8,6 +8,7 @@ import ChromaGrid from './components/ChromaGrid';
 import { Routes, Route } from 'react-router-dom';
 import NotFound from './components/not-found';
 import { BackgroundGradientAnimation } from './components/background-gradient-animation';
+import GradientText from './components/Gradient';
 import GlassIcons from './components/GlassIcons';
 import { FaReact, FaNode, FaAws, FaPython, FaDocker, FaHtml5 } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiTypescript, SiPostgresql } from "react-icons/si";
@@ -566,7 +567,13 @@ function App() {
                       className="text-center mb-12"
                     >
                       <h2 className="text-xl md:text-4xl font-bold text-black dark:text-white">
-                        Connect With Me
+                        <GradientText
+                          colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+                          animationSpeed={3}
+                          showBorder={false}
+                        >
+                          Connect With Me
+                        </GradientText>
                       </h2>
                       <p className="text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
                         Connect with me from anywhere in the globe either via my social media handles or send me a quick email. :)
@@ -582,21 +589,19 @@ function App() {
                         <div className="flex gap-4 bg-white dark:bg-neutral-800 p-4 rounded-lg shadow-lg">
                           <button
                             onClick={() => setActiveComponent('social')}
-                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${
-                              activeComponent === 'social'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
-                            }`}
+                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${activeComponent === 'social'
+                              ? 'bg-blue-600 text-white'
+                              : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
+                              }`}
                           >
                             Social Media
                           </button>
                           <button
                             onClick={() => setActiveComponent('form')}
-                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${
-                              activeComponent === 'form'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
-                            }`}
+                            className={`toggle-button px-6 py-3 rounded-lg font-semibold transition-colors duration-300 z-20 ${activeComponent === 'form'
+                              ? 'bg-blue-600 text-white'
+                              : 'bg-neutral-200 dark:bg-neutral-700 text-black dark:text-white hover:bg-blue-500 hover:text-white'
+                              }`}
                           >
                             Email Me
                           </button>

@@ -1,4 +1,4 @@
-# React Portfolio Website
+# My Portfolio Website
 
 Welcome to my personal portfolio website! This project showcases my skills, certifications, awards, and provides a way to connect with me. Built with React and modern web technologies, it features interactive components and a sleek design.
 

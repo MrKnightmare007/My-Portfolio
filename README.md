@@ -4,7 +4,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
 
 ## Live Demo
 
-[View the live demo here](#) *(Replace with your actual live demo link, e.g., hosted on Vercel, Netlify, or GitHub Pages)*
+[View the live demo here](https://soumyadiptadasportfolio.vercel.app/) 
 
 ## Features
 
@@ -26,7 +26,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/MrKnightmare007/My-Portfolio.git
    cd your-repo-name
    ```
 

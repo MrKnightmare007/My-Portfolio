@@ -27,7 +27,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/MrKnightmare007/My-Portfolio.git
-   cd your-repo-name
+   cd My-Portfolio
    ```
 
 2. **Install dependencies**:

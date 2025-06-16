@@ -28,6 +28,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
    ```bash
    git clone https://github.com/MrKnightmare007/My-Portfolio.git
    cd My-Portfolio
+   cd frontend
    ```
 
 2. **Install dependencies**:
@@ -37,7 +38,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
 
 3. **Run the development server**:
    ```bash
-   npm run dev
+   npm start
    ```
 
 4. **Open in browser**:

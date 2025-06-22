@@ -50,7 +50,7 @@ Welcome to my personal portfolio website! This project showcases my skills, cert
 ![Home Section](https://i.imgur.com/FxEQeVX.png)
 
 ### Projects Section
-![Projects Section](https://i.imgur.com/fPfoNS6.png)
+![Projects Section](https://i.imgur.com/MFBLnY4.png)
 
 ### Skills Section
 ![Skills Section](https://i.imgur.com/wfseRZD.png)
